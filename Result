@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+
+struct student
+{
+    char firstname[50];
+    char lastname[50];
+    int roll_no;
+    float phys, math, chem, ccp, et;
+};
+
+int main()
+{
+    int n;
+    printf("Enter the number of students whose marks are to be stored ");
+    scanf("%d", &n);
+    struct student s[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("\nEnter the first name of the student ");
+        scanf("%s", &s[i].firstname);
+        printf("Enter the last name of the student ");
+        scanf("%s", &s[i].lastname);    
+        printf("Enter the  roll number of the student ");
+        scanf("%d", &s[i].roll_no);
+        printf("Enter the marks of the student in CCP ");
+        scanf("%f", &s[i].ccp);
+        printf("Enter the marks of the student in Physics ");
+        scanf("%f", &s[i].phys); 
+        printf("Enter the marks of the student in Maths ");
+        scanf("%f", &s[i].math);
+        printf("Enter the marks of the student in Chemistry ");
+        scanf("%f", &s[i].chem);
+        printf("Enter the marks of the student in Electronics and instrumentation ");
+        scanf("%f", &s[i].et);
+    }
+
+    int in;char ch;
+    do
+{   printf("\n");
+    int r, cons;
+    printf("Enter the roll number of the students whose marksheet is to be displayed ");
+    scanf("%d", &r);
+    for (int j = 0; j < n; j++)
+    {
+        if (s[j].roll_no == r)
+        {
+            cons = j;
+        }
+    }
+
+
+    printf("                            Result                      \n");
+    printf("            Harcourt Butler Technical University, Kanpur\n");
+    printf("                         2021-2022\n");
+    printf("\n");
+    printf("First Name - ");
+    puts(s[cons].firstname);
+     printf("\nLast Name - ");
+    puts(s[cons].lastname);
+    printf("\nRoll no.- %d\n", s[cons].roll_no);
+    printf("\n");
+    printf("\n");
+    printf("                Obtained   Maximum marks");
+    printf("\n"); 
+    printf("CCP-            %.1f       100\n", s[cons].ccp);
+    printf("Physics-        %.1f       100\n", s[cons].phys);
+    printf("Maths-          %.1f       100\n", s[cons].math);
+    printf("Chemistry-      %.1f       100\n", s[cons].chem);
+    printf("Electronics -   %.1f       100", s[cons].et);
+    printf("\n\n\n\n");
+    printf("Press y for printing more results using roll number of students or press n for exisiting the code ");
+    scanf("%d",&in);
+    scanf("%c",&ch);
+
+} while(ch=='y');
+
+    return 0;
+} // gcc 13.c -o 13 //
